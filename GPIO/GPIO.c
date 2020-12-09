@@ -68,5 +68,5 @@ void gpio_PIN_WRITE(unsigned char port, unsigned char pin, unsigned char directi
 		case IN : WRITE(port) &= ~(1<<pin);
 	}}
 unsigned char gpio_PIN_READ(unsigned char port, unsigned char pin){
-	return (READ(port) && (1 << pin)) ? HIGH : LOW;
+	return (READ(port) & (1 << pin)) ? HIGH : LOW;
 }
