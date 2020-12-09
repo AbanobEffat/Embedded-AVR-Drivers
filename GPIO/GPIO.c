@@ -31,6 +31,7 @@ void gpio_UPPER_Direction(unsigned char port, unsigned char direction){
 	}
 }
 void gpio_UPPER_WRITE(unsigned char port, unsigned char direction){
+	WRITE(port) &= ~(0xf0);
 	WRITE(port) |= direction <<4;
 }
 unsigned char gpio_UPPER_READ(unsigned char port){
@@ -46,6 +47,7 @@ void gpio_LOWER_Direction(unsigned char port, unsigned char direction){
 	}
 }
 void gpio_LOWER_WRITE(unsigned char port, unsigned char direction){
+	WRITE(port) &= ~(0x0f);
 	WRITE(port) |= ((direction <<4) >>4);
 }
 unsigned char gpio_LOWER_READ(unsigned char port){
